@@ -1,0 +1,35 @@
+.department__controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    text-align: left;
+    width: 600px;
+  }
+
+  .department__div__control {
+    margin: 1rem;
+  }
+  
+  .new-department__control label {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+  
+  .new-department__control input {
+    font: inherit;
+    padding: 0.5rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    width: 20rem;
+    max-width: 100%;
+  }
+  
+  .new-department__actions {
+    text-align: right;
+    /* display: flex; */
+    /* justify-content: space-between; */
+    
+  }
+  

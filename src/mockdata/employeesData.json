@@ -1,0 +1,245 @@
+{
+    "data": {
+      "items": [
+        {
+          "uri": {
+            "$ref": "https://apex.oracle.com/pls/apex/partharanjansarkar/restful/employeesfeed/1451"
+          },
+          "collection_id": 1451,
+          "employee_id": 7782,
+          "employee_name": "CLARK",
+          "job": "MANAGER",
+          "manager_id": 7839,
+          "hiredate": "1981-06-09T00:00:00Z",
+          "salary": 2450,
+          "commision": null,
+          "department_id": 10
+        },
+        {
+          "uri": {
+            "$ref": "https://apex.oracle.com/pls/apex/partharanjansarkar/restful/employeesfeed/1449"
+          },
+          "collection_id": 1449,
+          "employee_id": 7839,
+          "employee_name": "KING",
+          "job": "PRESIDENT",
+          "manager_id": null,
+          "hiredate": "1981-11-17T00:00:00Z",
+          "salary": 5000,
+          "commision": null,
+          "department_id": 10
+        },
+        {
+          "uri": {
+            "$ref": "https://apex.oracle.com/pls/apex/partharanjansarkar/restful/employeesfeed/1462"
+          },
+          "collection_id": 1462,
+          "employee_id": 7934,
+          "employee_name": "MILLER",
+          "job": "CLERK",
+          "manager_id": 7782,
+          "hiredate": "1982-01-23T00:00:00Z",
+          "salary": 1300,
+          "commision": null,
+          "department_id": 10
+        },
+        {
+          "uri": {
+            "$ref": "https://apex.oracle.com/pls/apex/partharanjansarkar/restful/employeesfeed/1460"
+          },
+          "collection_id": 1460,
+          "employee_id": 7876,
+          "employee_name": "ADAMS",
+          "job": "CLERK",
+          "manager_id": 7788,
+          "hiredate": "1983-01-12T00:00:00Z",
+          "salary": 1100,
+          "commision": null,
+          "department_id": 20
+        },
+        {
+          "uri": {
+            "$ref": "https://apex.oracle.com/pls/apex/partharanjansarkar/restful/employeesfeed/1454"
+          },
+          "collection_id": 1454,
+          "employee_id": 7902,
+          "employee_name": "FORD",
+          "job": "ANALYST",
+          "manager_id": 7566,
+          "hiredate": "1981-12-03T00:00:00Z",
+          "salary": 3000,
+          "commision": null,
+          "department_id": 20
+        },
+        {
+          "uri": {
+            "$ref": "https://apex.oracle.com/pls/apex/partharanjansarkar/restful/employeesfeed/1452"
+          },
+          "collection_id": 1452,
+          "employee_id": 7566,
+          "employee_name": "JONES",
+          "job": "MANAGER",
+          "manager_id": 7839,
+          "hiredate": "1981-04-02T00:00:00Z",
+          "salary": 2975,
+          "commision": null,
+          "department_id": 20
+        },
+        {
+          "uri": {
+            "$ref": "https://apex.oracle.com/pls/apex/partharanjansarkar/restful/employeesfeed/1453"
+          },
+          "collection_id": 1453,
+          "employee_id": 7788,
+          "employee_name": "SCOTT",
+          "job": "ANALYST",
+          "manager_id": 7566,
+          "hiredate": "1982-12-09T00:00:00Z",
+          "salary": 3000,
+          "commision": null,
+          "department_id": 20
+        },
+        {
+          "uri": {
+            "$ref": "https://apex.oracle.com/pls/apex/partharanjansarkar/restful/employeesfeed/1455"
+          },
+          "collection_id": 1455,
+          "employee_id": 7369,
+          "employee_name": "SMITH",
+          "job": "CLERK",
+          "manager_id": 7902,
+          "hiredate": "1980-12-17T00:00:00Z",
+          "salary": 800,
+          "commision": null,
+          "department_id": 20
+        },
+        {
+          "uri": {
+            "$ref": "https://apex.oracle.com/pls/apex/partharanjansarkar/restful/employeesfeed/1456"
+          },
+          "collection_id": 1456,
+          "employee_id": 7499,
+          "employee_name": "ALLEN",
+          "job": "SALESMAN",
+          "manager_id": 7698,
+          "hiredate": "1981-02-20T00:00:00Z",
+          "salary": 1600,
+          "commision": 300,
+          "department_id": 30
+        },
+        {
+          "uri": {
+            "$ref": "https://apex.oracle.com/pls/apex/partharanjansarkar/restful/employeesfeed/1450"
+          },
+          "collection_id": 1450,
+          "employee_id": 7698,
+          "employee_name": "BLAKE",
+          "job": "MANAGER",
+          "manager_id": 7839,
+          "hiredate": "1981-05-01T00:00:00Z",
+          "salary": 2850,
+          "commision": null,
+          "department_id": 30
+        },
+        {
+          "uri": {
+            "$ref": "https://apex.oracle.com/pls/apex/partharanjansarkar/restful/employeesfeed/1461"
+          },
+          "collection_id": 1461,
+          "employee_id": 7900,
+          "employee_name": "JAMES",
+          "job": "CLERK",
+          "manager_id": 7698,
+          "hiredate": "1981-12-03T00:00:00Z",
+          "salary": 950,
+          "commision": null,
+          "department_id": 30
+        },
+        {
+          "uri": {
+            "$ref": "https://apex.oracle.com/pls/apex/partharanjansarkar/restful/employeesfeed/1458"
+          },
+          "collection_id": 1458,
+          "employee_id": 7654,
+          "employee_name": "MARTIN",
+          "job": "SALESMAN",
+          "manager_id": 7698,
+          "hiredate": "1981-09-28T00:00:00Z",
+          "salary": 1250,
+          "commision": 1400,
+          "department_id": 30
+        },
+        {
+          "uri": {
+            "$ref": "https://apex.oracle.com/pls/apex/partharanjansarkar/restful/employeesfeed/1459"
+          },
+          "collection_id": 1459,
+          "employee_id": 7844,
+          "employee_name": "TURNER",
+          "job": "SALESMAN",
+          "manager_id": 7698,
+          "hiredate": "1981-09-08T00:00:00Z",
+          "salary": 1500,
+          "commision": 0,
+          "department_id": 30
+        },
+        {
+          "uri": {
+            "$ref": "https://apex.oracle.com/pls/apex/partharanjansarkar/restful/employeesfeed/1457"
+          },
+          "collection_id": 1457,
+          "employee_id": 7521,
+          "employee_name": "WARD",
+          "job": "SALESMAN",
+          "manager_id": 7698,
+          "hiredate": "1981-02-22T00:00:00Z",
+          "salary": 1250,
+          "commision": 500,
+          "department_id": 30
+        }
+      ],
+      "first": {
+        "$ref": "https://apex.oracle.com/pls/apex/partharanjansarkar/restful/employeesfeed/"
+      }
+    },
+    "status": 200,
+    "statusText": "",
+    "headers": {
+      "access-control-allow-credentials": "true",
+      "access-control-allow-origin": "http://localhost:3000",
+      "content-length": "679",
+      "content-type": "application/json",
+      "etag": "\"ppJRbzlXyXbNZBi1Fxl2XdYngNpx0aGCfUxN8ZjvuCcxlN1lJyAzSsgYdIe6J36ToD2Sn7xu6mp3lb7A7fpOEw==\"",
+      "vary": "Origin, Accept-Encoding"
+    },
+    "config": {
+      "transitional": {
+        "silentJSONParsing": true,
+        "forcedJSONParsing": true,
+        "clarifyTimeoutError": false
+      },
+      "adapter": [
+        "xhr",
+        "http",
+        "fetch"
+      ],
+      "transformRequest": [
+        null
+      ],
+      "transformResponse": [
+        null
+      ],
+      "timeout": 0,
+      "xsrfCookieName": "XSRF-TOKEN",
+      "xsrfHeaderName": "X-XSRF-TOKEN",
+      "maxContentLength": -1,
+      "maxBodyLength": -1,
+      "env": {},
+      "headers": {
+        "Accept": "application/json, text/plain, */*"
+      },
+      "method": "get",
+      "url": "https://apex.oracle.com/pls/apex/partharanjansarkar/restful/employeesfeed"
+    },
+    "request": {}
+  }
