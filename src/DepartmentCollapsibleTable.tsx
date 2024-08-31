@@ -79,7 +79,6 @@ const DepartmentCollapsibleTable = () => {
   }, []);
   // console.log("first empsData", empsData);
   // console.log("first deptsData", deptsData);
-  // items.sort((a, b) => a.value - b.value);
   const departmentsRows: DepartmentWithEmployeesHistoryProps =
     departmentWithEmployeesHistory(
       empsData,
