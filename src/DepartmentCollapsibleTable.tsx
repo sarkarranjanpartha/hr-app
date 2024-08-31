@@ -13,6 +13,13 @@ import { apiParamsProps } from "./types/servicesType";
 const DepartmentCollapsibleTable = () => {
   const [empsData, setEmpsData] = useState<EmployeeProps[]>([]);
   const [deptsData, setDeptsData] = useState<DepartmentProps[]>([]);
+  const [dataChanged, setDataChanged] = useState(false);
+  const [openConfirmationDepartmentModal, setOpenConfirmationDepartmentModal] =
+    React.useState<boolean>(false);
+  const handleCloseConfirmationDepartmentModal = () => {
+    setOpenConfirmationDepartmentModal(false);
+    callRefreshFunction();
+  };
 
   const departmentsData = () => {
     const getAllDepartmentArgs: apiParamsProps = {
@@ -22,12 +29,15 @@ const DepartmentCollapsibleTable = () => {
       .then((deptsResponse) => {
         if (deptsResponse.status === 200) {
           setDeptsData(deptsResponse?.data?.items);
-          console.log(deptsResponse);
         } else {
-          console.log(deptsResponse);
+          console.log("getDepartments !== 200", deptsResponse);
         }
       })
       .catch((deptsError) => console.log(deptsError));
+  };
+
+  const callRefreshFunction = () => {
+    setDataChanged(!dataChanged);
   };
 
   const employeesData = () => {
@@ -38,9 +48,8 @@ const DepartmentCollapsibleTable = () => {
       .then((empsResponse) => {
         if (empsResponse.status === 200) {
           setEmpsData(empsResponse?.data?.items);
-          // console.log(empsResponse);
         } else {
-          console.log(empsResponse);
+          console.log("getEmployees !== 200", empsResponse);
         }
       })
       .catch((empsError) => console.log(empsError));
@@ -57,16 +66,9 @@ const DepartmentCollapsibleTable = () => {
 
     putDepartmentsById(putDepartmentArgs)
       .then((updtDeptResponse) => {
-        if (updtDeptResponse.status === 200)
-          console.log(
-            "updateDepartmentsByCollectionID success",
-            updtDeptResponse
-          );
+        if (updtDeptResponse.status === 200) callRefreshFunction();
         else {
-          console.log(
-            "updateDepartmentsByCollectionID success",
-            updtDeptResponse
-          );
+          console.log("putDepartmentsById !== 200", updtDeptResponse);
         }
       })
       .catch((updtDeptError) => console.log(updtDeptError));
@@ -76,14 +78,13 @@ const DepartmentCollapsibleTable = () => {
   React.useEffect(() => {
     departmentsData();
     employeesData();
-  }, []);
-  // console.log("first empsData", empsData);
-  // console.log("first deptsData", deptsData);
+  }, [dataChanged]);
   const departmentsRows: DepartmentWithEmployeesHistoryProps =
     departmentWithEmployeesHistory(
       empsData,
       deptsData.sort((a, b) => a.department_id - b.department_id)
     );
+  // console.log("dataChanged", dataChanged);
   return (
     <>
       <div>Department Collapsible Table</div>

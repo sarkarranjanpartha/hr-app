@@ -18,7 +18,7 @@ export interface DepartmentFormProps {
 }
 
 const DepartmentForm = (props: DepartmentFormProps) => {
-  console.log("DepartmentFormProps", props);
+  // console.log("DepartmentFormProps", props);
   const {
     isReadOnlyDepartmentModal,
     isNewDepartmentCreation,
@@ -71,18 +71,16 @@ const DepartmentForm = (props: DepartmentFormProps) => {
       dname: departmentName,
       loc: location,
     };
-    console.log("selectedRow?.collection_id", selectedRow?.collection_id);
     console.log("deptmentData", deptmentData);
-    if (callType === "edit")
+    if (callType === "edit") {
       props.updateDepartmentsByCollectionID(
         selectedRow?.collection_id as number,
         deptmentData
       );
+      handleCloseConfirmationDepartmentModal();
+    }
     if (callType === "create-new-department")
       postDepartment("deptinfo/", deptmentData);
-    // setDepartmentId();
-    // setDepartmentName("");
-    // setLocation("");
   };
 
   return (
@@ -159,7 +157,7 @@ const DepartmentForm = (props: DepartmentFormProps) => {
             variant="soft"
             color="success"
             onClick={() => {
-              console.log("Clicked on Cancel");
+              // console.log("Clicked on Cancel");
               handleCloseConfirmationDepartmentModal();
             }}
           >
@@ -170,13 +168,13 @@ const DepartmentForm = (props: DepartmentFormProps) => {
             size="sm"
             variant="soft"
             color="success"
-            onClick={() => {
-              console.log(
-                `Clicked on ${
-                  callType === "edit" ? "Apply Changes" : "Add Department"
-                }`
-              );
-            }}
+            // onClick={() => {
+            //   console.log(
+            //     `Clicked on ${
+            //       callType === "edit" ? "Apply Changes" : "Add Department"
+            //     }`
+            //   );
+            // }}
             type="submit"
           >
             {callType === "edit" ? "Apply Changes" : "Add Department"}

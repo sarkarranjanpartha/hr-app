@@ -43,7 +43,7 @@ function Row(props: {
     React.useState(false);
   const [callType, setCallType] = React.useState("");
   const [selectedRow, setSelectedRow] = React.useState<DepartmentProps>();
-  console.log("selectedRow 1", selectedRow);
+
   return (
     <>
       <React.Fragment>
@@ -77,7 +77,7 @@ function Row(props: {
                 variant="plain"
                 color="neutral"
                 onClick={() => {
-                  console.log("Clicked on View");
+                  // console.log("Clicked on View");
                   setOpenConfirmationDepartmentModal(true);
                   setIsReadOnlyDepartmentModal(true);
                   setIsNewDepartmentCreation(false);
@@ -92,7 +92,7 @@ function Row(props: {
                 variant="soft"
                 color="danger"
                 onClick={() => {
-                  console.log("Clicked on Edit");
+                  // console.log("Clicked on Edit");
                   setOpenConfirmationDepartmentModal(true);
                   setIsReadOnlyDepartmentModal(false);
                   setIsNewDepartmentCreation(false);
@@ -174,10 +174,10 @@ export interface DepartmentsCollapsibleRowProps {
   ) => void;
 }
 const DepartmentsCollapsibleRow = (props: DepartmentsCollapsibleRowProps) => {
-  console.log("DepartmentsCollapsibleRowProps partha", props);
+  // console.log("DepartmentsCollapsibleRowProps", props);
   const { departmentsRows, updateDepartmentsByCollectionID } = props;
   const [page, setPage] = React.useState(0);
-  const [rowsPerPage, setRowsPerPage] = React.useState(3);
+  const [rowsPerPage, setRowsPerPage] = React.useState(5);
 
   const currentRows: DepartmentWithEmployeesHistoryProps =
     departmentsRows.filter((r, ind) => {
@@ -206,7 +206,6 @@ const DepartmentsCollapsibleRow = (props: DepartmentsCollapsibleRowProps) => {
   const [isNewDepartmentCreation, setIsNewDepartmentCreation] =
     React.useState(false);
   const [callType, setCallType] = React.useState("");
-  // const [selectedRow, setSelectedRow] = React.useState<DepartmentProps>();
 
   return (
     <>
@@ -227,7 +226,7 @@ const DepartmentsCollapsibleRow = (props: DepartmentsCollapsibleRowProps) => {
                   variant="soft"
                   color="success"
                   onClick={() => {
-                    console.log("Clicked on Create New Department");
+                    // console.log("Clicked on Create New Department");
                     setOpenConfirmationDepartmentModal(true);
                     setIsReadOnlyDepartmentModal(false);
                     setIsNewDepartmentCreation(true);
