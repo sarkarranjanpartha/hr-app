@@ -18,10 +18,10 @@ export interface DepartmentModalProps {
     collectionID: number,
     bodyData: any
   ) => void;
+  callRefreshFunction: () => void;
 }
 
 const DepartmentModal = (props: DepartmentModalProps) => {
-  // console.log("DepartmentModalProps", props);
   const {
     openConfirmationDepartmentModal,
     handleCloseConfirmationDepartmentModal,
@@ -30,6 +30,7 @@ const DepartmentModal = (props: DepartmentModalProps) => {
     callType,
     selectedRow,
     updateDepartmentsByCollectionID,
+    callRefreshFunction,
   } = props;
 
   return (
@@ -63,6 +64,7 @@ const DepartmentModal = (props: DepartmentModalProps) => {
             }
             selectedRow={selectedRow}
             updateDepartmentsByCollectionID={updateDepartmentsByCollectionID}
+            callRefreshFunction={callRefreshFunction}
           />
         </DialogContent>
       </Dialog>

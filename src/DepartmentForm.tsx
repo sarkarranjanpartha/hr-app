@@ -15,10 +15,10 @@ export interface DepartmentFormProps {
     collectionID: number,
     bodyData: any
   ) => void;
+  callRefreshFunction: () => void;
 }
 
 const DepartmentForm = (props: DepartmentFormProps) => {
-  // console.log("DepartmentFormProps", props);
   const {
     isReadOnlyDepartmentModal,
     isNewDepartmentCreation,
@@ -26,6 +26,7 @@ const DepartmentForm = (props: DepartmentFormProps) => {
     handleCloseConfirmationDepartmentModal,
     selectedRow,
     updateDepartmentsByCollectionID,
+    callRefreshFunction,
   } = props;
 
   const [collectionId, setCollectionId] = useState(
@@ -64,14 +65,13 @@ const DepartmentForm = (props: DepartmentFormProps) => {
   };
 
   const submitHandler = (event: any) => {
-    // console.log("Call submitHandler");
     event.preventDefault();
     const deptmentData = {
       deptno: departmentId,
       dname: departmentName,
       loc: location,
     };
-    console.log("deptmentData", deptmentData);
+
     if (callType === "edit") {
       props.updateDepartmentsByCollectionID(
         selectedRow?.collection_id as number,
@@ -79,8 +79,14 @@ const DepartmentForm = (props: DepartmentFormProps) => {
       );
       handleCloseConfirmationDepartmentModal();
     }
-    if (callType === "create-new-department")
-      postDepartment("deptinfo/", deptmentData);
+    if (callType === "create-new-department") {
+      const postResp = postDepartment(
+        "deptinfo/",
+        deptmentData,
+        props.callRefreshFunction
+      );
+      handleCloseConfirmationDepartmentModal();
+    }
   };
 
   return (
@@ -157,7 +163,6 @@ const DepartmentForm = (props: DepartmentFormProps) => {
             variant="soft"
             color="success"
             onClick={() => {
-              // console.log("Clicked on Cancel");
               handleCloseConfirmationDepartmentModal();
             }}
           >
@@ -168,13 +173,6 @@ const DepartmentForm = (props: DepartmentFormProps) => {
             size="sm"
             variant="soft"
             color="success"
-            // onClick={() => {
-            //   console.log(
-            //     `Clicked on ${
-            //       callType === "edit" ? "Apply Changes" : "Add Department"
-            //     }`
-            //   );
-            // }}
             type="submit"
           >
             {callType === "edit" ? "Apply Changes" : "Add Department"}
