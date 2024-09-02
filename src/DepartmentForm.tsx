@@ -25,8 +25,6 @@ const DepartmentForm = (props: DepartmentFormProps) => {
     callType,
     handleCloseConfirmationDepartmentModal,
     selectedRow,
-    updateDepartmentsByCollectionID,
-    callRefreshFunction,
   } = props;
 
   const [collectionId, setCollectionId] = useState(
@@ -39,12 +37,6 @@ const DepartmentForm = (props: DepartmentFormProps) => {
     selectedRow?.department_name ?? ""
   );
   const [location, setLocation] = useState(selectedRow?.location ?? "");
-
-  const setCollectionIdChangeHandler = (
-    event: React.ChangeEvent<HTMLInputElement | any>
-  ) => {
-    setCollectionId(event.target.value);
-  };
 
   const departmentIdChangeHandler = (
     event: React.ChangeEvent<HTMLInputElement | any>
@@ -80,11 +72,7 @@ const DepartmentForm = (props: DepartmentFormProps) => {
       handleCloseConfirmationDepartmentModal();
     }
     if (callType === "create-new-department") {
-      const postResp = postDepartment(
-        "deptinfo/",
-        deptmentData,
-        props.callRefreshFunction
-      );
+      postDepartment("deptinfo/", deptmentData, props.callRefreshFunction);
       handleCloseConfirmationDepartmentModal();
     }
   };
