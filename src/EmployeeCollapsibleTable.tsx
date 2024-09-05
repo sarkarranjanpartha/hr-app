@@ -4,7 +4,7 @@ const EmployeesCollapsibleTable = () => {
   return (
     <>
       <div>Employees Collapsible Table</div>
-      <EmployeesCollapsibleRow />
+      {/* <EmployeesCollapsibleRow /> */}
     </>
   );
 };
