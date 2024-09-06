@@ -168,22 +168,22 @@ function Row(props: {
                         </TableCell>
                         <TableCell>
                           {historyRow.media_url ? (
-                            // <img
-                            //   src={historyRow.media_url}
-                            //   alt={historyRow.media_title ?? "-"}
-                            //   loading="lazy"
-                            //   width="100"
-                            //   height="100"
-                            // />
-                            <IconButton
-                              color="default"
-                              onClick={() => {
-                                console.log("Click on View Icon");
-                              }}
-                            >
-                              <VisibilityIcon />
-                            </IconButton>
+                            <img
+                              src={historyRow.media_url}
+                              alt={historyRow.media_title ?? "-"}
+                              loading="lazy"
+                              width="100"
+                              height="100"
+                            />
                           ) : (
+                            // <IconButton
+                            //   color="default"
+                            //   onClick={() => {
+                            //     console.log("Click on View Icon");
+                            //   }}
+                            // >
+                            //   <VisibilityIcon />
+                            // </IconButton>
                             "-"
                           )}
                         </TableCell>
