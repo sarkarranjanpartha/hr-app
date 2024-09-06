@@ -2,8 +2,6 @@ import {
   EmployeeProps,
   EmployeesHistoryWithDepartmentProps,
 } from "../types/employee";
-import employeesData from "../mockdata/employeesData.json";
-import departmentsData from "../mockdata/departmentsData.json";
 import { DepartmentProps } from "../types/department";
 
 const employeesWithDepartmentHistory = (
@@ -13,7 +11,7 @@ const employeesWithDepartmentHistory = (
   let employeesWithDepartmentsHistoryRows: EmployeesHistoryWithDepartmentProps =
     empsData.map((item) => ({
       ...item,
-      history: deptsData.filter((f) => f.department_id == item.department_id),
+      history: deptsData.filter((f) => f.department_id === item.department_id),
     }));
 
   return employeesWithDepartmentsHistoryRows;

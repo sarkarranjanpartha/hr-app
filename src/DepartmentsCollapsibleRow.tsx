@@ -14,6 +14,7 @@ import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import TablePagination from "@mui/material/TablePagination";
 import { Button } from "@mui/joy";
+import VisibilityIcon from "@mui/icons-material/Visibility";
 import {
   DepartmentHistoryProps,
   DepartmentProps,
@@ -34,16 +35,15 @@ function Row(props: {
   const [openExpandRow, setOpenExpandRow] = React.useState(false);
   const [openConfirmationDepartmentModal, setOpenConfirmationDepartmentModal] =
     React.useState<boolean>(false);
-  // const handleOpenConfirmationDepartmentModal = () =>
-  //   setOpenConfirmationDepartmentModal(true);
-  const handleCloseConfirmationDepartmentModal = () =>
-    setOpenConfirmationDepartmentModal(false);
   const [isReadOnlyDepartmentModal, setIsReadOnlyDepartmentModal] =
     React.useState<boolean>(false);
   const [isNewDepartmentCreation, setIsNewDepartmentCreation] =
     React.useState(false);
   const [callType, setCallType] = React.useState("");
   const [selectedRow, setSelectedRow] = React.useState<DepartmentProps>();
+
+  const handleCloseConfirmationDepartmentModal = () =>
+    setOpenConfirmationDepartmentModal(() => false);
 
   return (
     <>
@@ -54,8 +54,8 @@ function Row(props: {
               aria-label="expand row"
               size="small"
               onClick={() => {
-                setOpenExpandRow(!openExpandRow);
-                setSelectedRow(row);
+                setOpenExpandRow((prevOpenExpandRow) => !prevOpenExpandRow);
+                setSelectedRow(() => row);
               }}
             >
               {openExpandRow ? (
@@ -78,11 +78,11 @@ function Row(props: {
                 variant="plain"
                 color="neutral"
                 onClick={() => {
-                  setOpenConfirmationDepartmentModal(true);
-                  setIsReadOnlyDepartmentModal(true);
-                  setIsNewDepartmentCreation(false);
-                  setCallType("view");
-                  setSelectedRow(row);
+                  setOpenConfirmationDepartmentModal(() => true);
+                  setIsReadOnlyDepartmentModal(() => true);
+                  setIsNewDepartmentCreation(() => false);
+                  setCallType(() => "view");
+                  setSelectedRow(() => row);
                 }}
               >
                 View
@@ -92,11 +92,11 @@ function Row(props: {
                 variant="soft"
                 color="danger"
                 onClick={() => {
-                  setOpenConfirmationDepartmentModal(true);
-                  setIsReadOnlyDepartmentModal(false);
-                  setIsNewDepartmentCreation(false);
-                  setCallType("edit");
-                  setSelectedRow(row);
+                  setOpenConfirmationDepartmentModal(() => true);
+                  setIsReadOnlyDepartmentModal(() => false);
+                  setIsNewDepartmentCreation(() => false);
+                  setCallType(() => "edit");
+                  setSelectedRow(() => row);
                 }}
               >
                 Edit
@@ -166,8 +166,26 @@ function Row(props: {
                         <TableCell align="right">
                           {historyRow.department_id}
                         </TableCell>
-                        <TableCell align="right">
-                          {historyRow.department_id}
+                        <TableCell>
+                          {historyRow.media_url ? (
+                            // <img
+                            //   src={historyRow.media_url}
+                            //   alt={historyRow.media_title ?? "-"}
+                            //   loading="lazy"
+                            //   width="100"
+                            //   height="100"
+                            // />
+                            <IconButton
+                              color="default"
+                              onClick={() => {
+                                console.log("Click on View Icon");
+                              }}
+                            >
+                              <VisibilityIcon />
+                            </IconButton>
+                          ) : (
+                            "-"
+                          )}
                         </TableCell>
                       </TableRow>
                     ))}
@@ -217,27 +235,26 @@ const DepartmentsCollapsibleRow = (props: DepartmentsCollapsibleRowProps) => {
     });
 
   const handleChangePage = (event: unknown, newPage: number) => {
-    setPage(newPage);
+    setPage(() => newPage);
   };
 
   const handleChangeRowsPerPage = (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
-    setRowsPerPage(parseInt(event.target.value, 10));
-    setPage(0);
+    setRowsPerPage(() => parseInt(event.target.value, 10));
+    setPage(() => 0);
   };
 
   const [openConfirmationDepartmentModal, setOpenConfirmationDepartmentModal] =
     React.useState<boolean>(false);
-  // const handleOpenConfirmationDepartmentModal = () =>
-  //   setOpenConfirmationDepartmentModal(true);
-  const handleCloseConfirmationDepartmentModal = () =>
-    setOpenConfirmationDepartmentModal(false);
   const [isReadOnlyDepartmentModal, setIsReadOnlyDepartmentModal] =
     React.useState<boolean>(false);
   const [isNewDepartmentCreation, setIsNewDepartmentCreation] =
     React.useState(false);
   const [callType, setCallType] = React.useState("");
+
+  const handleCloseConfirmationDepartmentModal = () =>
+    setOpenConfirmationDepartmentModal(() => false);
 
   return (
     <>
@@ -257,10 +274,10 @@ const DepartmentsCollapsibleRow = (props: DepartmentsCollapsibleRowProps) => {
                     variant="soft"
                     color="success"
                     onClick={() => {
-                      setOpenConfirmationDepartmentModal(true);
-                      setIsReadOnlyDepartmentModal(false);
-                      setIsNewDepartmentCreation(true);
-                      setCallType("create-new-department");
+                      setOpenConfirmationDepartmentModal(() => true);
+                      setIsReadOnlyDepartmentModal(() => false);
+                      setIsNewDepartmentCreation(() => true);
+                      setCallType(() => "create-new-department");
                     }}
                   >
                     Create New Department
