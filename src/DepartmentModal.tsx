@@ -1,9 +1,6 @@
 import * as React from "react";
-import { IconButton } from "@mui/material";
+import { Dialog, DialogContent, DialogTitle, IconButton } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
-import Dialog from "@mui/material/Dialog";
-import DialogTitle from "@mui/material/DialogTitle";
-import DialogContent from "@mui/material/DialogContent";
 import DepartmentForm from "./DepartmentForm";
 import { DepartmentProps } from "./types/department";
 
