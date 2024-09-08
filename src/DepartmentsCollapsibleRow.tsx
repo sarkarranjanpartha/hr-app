@@ -149,7 +149,7 @@ function Row(props: {
                   <TableBody>
                     {row.history.map((historyRow) => (
                       <TableRow key={historyRow.collection_id}>
-                        <TableCell component="th" scope="row" align="right">
+                        <TableCell component="td" scope="row" align="right">
                           {historyRow.collection_id}
                         </TableCell>
                         <TableCell align="right">
