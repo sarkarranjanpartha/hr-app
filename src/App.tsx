@@ -5,26 +5,23 @@ import EmployeesCollapsibleTable from "./EmployeeCollapsibleTable";
 
 function App() {
   const [open, setOpen] = useState(true);
-  const [onenReportToView, setOnenReportToView] = useState("");
+  const [openReportToView, setOpenReportToView] = useState("");
 
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
   const handleClose = (value: string) => {
     setOpen(false);
-    setOnenReportToView(value);
+    setOpenReportToView(value);
   };
   return (
     <div className="App">
-      {onenReportToView === "EmployeesCollapsibleTable" && (
+      {openReportToView === "EmployeesCollapsibleTable" && (
         <EmployeesCollapsibleTable />
       )}
 
-      {onenReportToView === "DepartmentCollapsibleTable" && (
+      {openReportToView === "DepartmentCollapsibleTable" && (
         <DepartmentCollapsibleTable />
       )}
       <ClickOnTheReportYouWantToView
-        selectedValue={onenReportToView}
+        selectedValue={openReportToView}
         open={open}
         onClose={handleClose}
       />

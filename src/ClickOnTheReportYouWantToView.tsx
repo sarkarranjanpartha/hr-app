@@ -27,25 +27,21 @@ const ClickOnTheReportYouWantToView = (
     },
   ];
 
-  const { onClose, selectedValue, open } = props;
-
-  const handleClose = () => {
-    onClose(selectedValue);
-  };
+  const { onClose, open } = props;
 
   const handleListItemClick = (value: string) => {
     onClose(value);
   };
 
   return (
-    <Dialog onClose={handleClose} open={open}>
-      <DialogTitle>Click on the report you want to view...!</DialogTitle>
+    <Dialog open={open}>
+      <DialogTitle>Set report you want to view.</DialogTitle>
       <List sx={{ pt: 0 }}>
         {listItems.map((listItem) => (
           <ListItem disableGutters key={listItem.key}>
             <ListItemButton
               onClick={() => handleListItemClick(listItem.return)}
-              sx={{ alignContent: "center" }}
+              // sx={{ alignContent: "center" }}
             >
               <ListItemText primary={listItem.display} />
             </ListItemButton>
