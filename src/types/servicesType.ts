@@ -1,5 +1,4 @@
-export const BaseUrl: string =
-  "https://apex.oracle.com/pls/apex/partharanjansarkar/restful";
+export const BaseUrl: string = `${process.env.REACT_APP_BASE_URL as string}`;
 
 export interface ApiParams {
   baseUrl: string;
