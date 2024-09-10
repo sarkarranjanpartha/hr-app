@@ -17,6 +17,9 @@ const ImageModal: React.FC<ImageModalProps> = ({
   mediaUrl,
   mediaTitle,
 }) => {
+  const handleImageClick = () => {
+    window.open(mediaUrl, "_blank");
+  };
   return (
     <Modal
       open={open}
@@ -45,15 +48,30 @@ const ImageModal: React.FC<ImageModalProps> = ({
         >
           {mediaTitle}
         </Typography>
-        <img
-          src={mediaUrl}
-          alt="Media preview"
-          style={{
-            maxWidth: "100%",
-            maxHeight: "calc(90vh - 100px)",
-            objectFit: "contain",
+        <Box
+          sx={{
+            width: "100%",
+            height: "calc(100% - 40px)", // Adjust based on title height
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
           }}
-        />
+        >
+          <img
+            src={mediaUrl}
+            alt={mediaTitle}
+            style={{
+              maxWidth: "100%",
+              maxHeight: "calc(90vh - 100px)",
+              objectFit: "contain",
+              cursor: "pointer",
+            }}
+            onClick={handleImageClick}
+            tabIndex={0}
+            onFocus={(e) => (e.currentTarget.style.cursor = "pointer")}
+            onBlur={(e) => (e.currentTarget.style.cursor = "default")}
+          />
+        </Box>
       </Box>
     </Modal>
   );
