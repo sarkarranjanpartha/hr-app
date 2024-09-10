@@ -51,7 +51,7 @@ const ImageModal: React.FC<ImageModalProps> = ({
         <Box
           sx={{
             width: "100%",
-            height: "calc(100% - 40px)", // Adjust based on title height
+            height: "calc(100% - 40px)",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",

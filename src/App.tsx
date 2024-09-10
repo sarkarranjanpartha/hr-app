@@ -1,7 +1,7 @@
 import { useState } from "react";
 import ClickOnTheReportYouWantToView from "./ClickOnTheReportYouWantToView";
 import DepartmentCollapsibleTable from "./DepartmentCollapsibleTable";
-import EmployeesCollapsibleTable from "./EmployeeCollapsibleTable";
+import EmployeeCollapsibleTable from "./EmployeeCollapsibleTable";
 
 function App() {
   const [open, setOpen] = useState(true);
@@ -13,8 +13,8 @@ function App() {
   };
   return (
     <div className="App">
-      {openReportToView === "EmployeesCollapsibleTable" && (
-        <EmployeesCollapsibleTable />
+      {openReportToView === "EmployeeCollapsibleTable" && (
+        <EmployeeCollapsibleTable />
       )}
 
       {openReportToView === "DepartmentCollapsibleTable" && (
