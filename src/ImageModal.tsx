@@ -76,4 +76,5 @@ const ImageModal: React.FC<ImageModalProps> = ({
     </Modal>
   );
 };
+
 export default ImageModal;
