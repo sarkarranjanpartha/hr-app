@@ -77,7 +77,6 @@ const DepartmentCollapsibleTable = () => {
       empsData,
       deptsData.sort((a, b) => a.department_id - b.department_id)
     );
-
   return (
     <>
       <div>Department Collapsible Table</div>
