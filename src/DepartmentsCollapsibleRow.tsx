@@ -22,6 +22,7 @@ import {
 } from "./types/department";
 import DepartmentModal from "./DepartmentModal";
 import TableSkeleton from "./TableSkeleton";
+import ImageModal from "./ImageModal";
 
 function Row(props: {
   row: DepartmentHistoryProps;
@@ -44,6 +45,14 @@ function Row(props: {
 
   const handleCloseConfirmationDepartmentModal = () =>
     setOpenConfirmationDepartmentModal(() => false);
+  const [openImageModal, setOpenImageModal] = React.useState(false);
+  const [mediaUrl, setMediaUrl] = React.useState("");
+  const [mediaTitle, setMediaTitle] = React.useState("");
+  const openImageModalHandler = (imageUrl: string, mediaTitle: string) => {
+    setMediaUrl(() => imageUrl);
+    setMediaTitle(() => mediaTitle);
+    setOpenImageModal(true);
+  };
 
   return (
     <>
@@ -168,18 +177,14 @@ function Row(props: {
                         </TableCell>
                         <TableCell>
                           {historyRow.media_url ? (
-                            // <img
-                            //   src={historyRow.media_url}
-                            //   alt={historyRow.media_title ?? "-"}
-                            //   loading="lazy"
-                            //   width="100"
-                            //   height="100"
-                            // />
                             <IconButton
                               color="default"
-                              onClick={() => {
-                                console.log("Click on View Icon");
-                              }}
+                              onClick={() =>
+                                openImageModalHandler(
+                                  historyRow.media_url as string,
+                                  historyRow.media_title as string
+                                )
+                              }
                             >
                               <VisibilityIcon />
                             </IconButton>
@@ -208,6 +213,14 @@ function Row(props: {
         updateDepartmentsByCollectionID={updateDepartmentsByCollectionID}
         callRefreshFunction={callRefreshFunction}
       />
+      {openImageModal && (
+        <ImageModal
+          openImageModal={openImageModal}
+          mediaTitle={mediaTitle}
+          mediaUrl={mediaUrl}
+          setOpenImageModal={setOpenImageModal}
+        />
+      )}
     </>
   );
 }
