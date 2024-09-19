@@ -21,7 +21,7 @@ export interface DepartmentModalProps {
 }
 
 const DepartmentModal = (props: DepartmentModalProps) => {
-  console.log("DepartmentModalProps", props);
+  // console.log("DepartmentModalProps", props);
   const {
     openConfirmationDepartmentModal,
     handleCloseConfirmationDepartmentModal,
