@@ -22,8 +22,8 @@ const ClickOnTheReportYouWantToView = (
     },
     {
       key: 1,
-      display: "Employees Collapsible Report",
-      return: "EmployeesCollapsibleTable",
+      display: "Employee Collapsible Report",
+      return: "EmployeeCollapsibleTable",
     },
   ];
 

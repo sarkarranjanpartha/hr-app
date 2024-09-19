@@ -22,6 +22,7 @@ import {
 import DepartmentModal from "./DepartmentModal";
 import TableSkeleton from "./TableSkeleton";
 import ImageModal from "./ImageModal";
+import EmployeeModalForm from "./EmployeeModalForm";
 
 function Row(props: {
   row: DepartmentHistoryProps;
@@ -45,6 +46,10 @@ function Row(props: {
   const [openImageModal, setOpenImageModal] = React.useState(false);
   const [selectedMediaUrl, setSelectedMediaUrl] = React.useState("");
   const [selectedMediaTitle, setSelectedMediaTitle] = React.useState("");
+  const [openEmployeeModalForm, setOpenEmployeeModalForm] =
+    React.useState(false);
+  const [selectDepartmentId, setSelectDepartmentId] = React.useState(0);
+  const [selectDepartmentName, setSelectDepartmentName] = React.useState("");
 
   const handleCloseConfirmationDepartmentModal = () =>
     setOpenConfirmationDepartmentModal(() => false);
@@ -54,7 +59,15 @@ function Row(props: {
     setOpenImageModal(true);
   };
   const handleCloseImageModal = () => setOpenImageModal(false);
-
+  const handleOpenEmployeeModalForm = (
+    departmentId: number,
+    departmentName: string
+  ) => {
+    setSelectDepartmentId(departmentId);
+    setSelectDepartmentName(departmentName);
+    setOpenEmployeeModalForm(true);
+  };
+  const handleCloseEmployeeModalForm = () => setOpenEmployeeModalForm(false);
   return (
     <>
       <React.Fragment>
@@ -126,7 +139,11 @@ function Row(props: {
                 variant="outlined"
                 color="primary"
                 onClick={() => {
-                  console.log(`Add Employee to ${row.department_name}`);
+                  // console.log(`Add Employee to ${row.department_name}`);
+                  handleOpenEmployeeModalForm(
+                    row.department_id,
+                    row.department_name
+                  );
                 }}
               >
                 Add Employee to {row.department_id}
@@ -189,7 +206,7 @@ function Row(props: {
                                 )
                               }
                             >
-                              Open Modal
+                              View Image
                             </Button>
                           ) : (
                             "-"
@@ -221,6 +238,12 @@ function Row(props: {
         onClose={handleCloseImageModal}
         mediaUrl={selectedMediaUrl}
         mediaTitle={selectedMediaTitle}
+      />
+      <EmployeeModalForm
+        open={openEmployeeModalForm}
+        selectDepartmentId={selectDepartmentId}
+        selectDepartmentName={selectDepartmentName}
+        onClose={handleCloseEmployeeModalForm}
       />
     </>
   );

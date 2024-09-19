@@ -1,7 +1,7 @@
 import EmployeesCollapsibleRow from "./EmployeesCollapsibleRow";
 import "../src/index.css";
 
-const EmployeesCollapsibleTable = () => {
+const EmployeeCollapsibleTable = () => {
   return (
     <>
       <div className="CollapsibleTextAlignCss">
@@ -12,4 +12,4 @@ const EmployeesCollapsibleTable = () => {
   );
 };
 
-export default EmployeesCollapsibleTable;
+export default EmployeeCollapsibleTable;
