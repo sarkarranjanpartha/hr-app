@@ -72,7 +72,7 @@ function Row(props: {
           <TableCell>{row.department_name}</TableCell>
           <TableCell>{row.location}</TableCell>
           <TableCell>
-            <Box sx={{ display: "flex", gap: 1 }}>
+            <Box sx={{ display: "flex", gap: 1, justifyContent: "center" }}>
               <Button
                 size="sm"
                 variant="plain"
@@ -100,6 +100,16 @@ function Row(props: {
                 }}
               >
                 Edit
+              </Button>
+              <Button
+                size="sm"
+                variant="solid"
+                color="danger"
+                onClick={() => {
+                  console.log("Clicked on delete!");
+                }}
+              >
+                Delete
               </Button>
             </Box>
           </TableCell>
@@ -227,19 +237,21 @@ const DepartmentsCollapsibleRow = (props: DepartmentsCollapsibleRowProps) => {
               <TableCell>Department Name</TableCell>
               <TableCell>Location</TableCell>
               <TableCell>
-                <Button
-                  size="sm"
-                  variant="soft"
-                  color="success"
-                  onClick={() => {
-                    setOpenConfirmationDepartmentModal(true);
-                    setIsReadOnlyDepartmentModal(false);
-                    setIsNewDepartmentCreation(true);
-                    setCallType("create-new-department");
-                  }}
-                >
-                  Create New Department
-                </Button>
+                <Box sx={{ display: "flex", gap: 1, justifyContent: "center" }}>
+                  <Button
+                    size="sm"
+                    variant="soft"
+                    color="success"
+                    onClick={() => {
+                      setOpenConfirmationDepartmentModal(true);
+                      setIsReadOnlyDepartmentModal(false);
+                      setIsNewDepartmentCreation(true);
+                      setCallType("create-new-department");
+                    }}
+                  >
+                    Create New Department
+                  </Button>
+                </Box>
               </TableCell>
             </TableRow>
           </TableHead>
