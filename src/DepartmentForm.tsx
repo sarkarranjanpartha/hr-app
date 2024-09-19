@@ -62,7 +62,6 @@ const DepartmentForm = (props: DepartmentFormProps) => {
       dname: departmentName,
       loc: location,
     };
-
     if (callType === "edit") {
       props.updateDepartmentsByCollectionID(
         selectedRow?.collection_id as number,
