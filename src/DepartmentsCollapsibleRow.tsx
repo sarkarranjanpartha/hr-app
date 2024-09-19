@@ -111,6 +111,16 @@ function Row(props: {
               >
                 Delete
               </Button>
+              <Button
+                size="sm"
+                variant="outlined"
+                color="primary"
+                onClick={() => {
+                  console.log(`Add Employee to ${row.department_name}`);
+                }}
+              >
+                Add Employee to {row.department_id}
+              </Button>
             </Box>
           </TableCell>
         </TableRow>
@@ -250,6 +260,26 @@ const DepartmentsCollapsibleRow = (props: DepartmentsCollapsibleRowProps) => {
                     }}
                   >
                     Create New Department
+                  </Button>
+                  <Button
+                    size="sm"
+                    variant="outlined"
+                    color="warning"
+                    onClick={() => {
+                      console.log("Clicked on Show All Employees");
+                    }}
+                  >
+                    Show All Employees
+                  </Button>
+                  <Button
+                    size="sm"
+                    variant="outlined"
+                    color="warning"
+                    onClick={() => {
+                      console.log("Create New Employees");
+                    }}
+                  >
+                    Create New Employees
                   </Button>
                 </Box>
               </TableCell>
