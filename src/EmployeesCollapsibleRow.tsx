@@ -30,13 +30,13 @@ function Row(props: { row: EmployeeHistoryProps; initialOpen?: boolean }) {
 
   return (
     <React.Fragment>
-      <TableRow sx={{ "& > *": { borderBottom: "unset" } }}>
-        <TableCell>
+      <TableRow>
+        <TableCell align="center">
           <IconButton aria-label="expand row" onClick={() => setOpen(!open)}>
             {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
           </IconButton>
         </TableCell>
-        <TableCell component="th" scope="row">
+        <TableCell component="td" scope="row" align="right">
           {row.collection_id}
         </TableCell>
         <TableCell>{row.employee_id}</TableCell>
@@ -48,7 +48,7 @@ function Row(props: { row: EmployeeHistoryProps; initialOpen?: boolean }) {
         <TableCell>{row.commision ?? "-"}</TableCell>
         <TableCell>{row.department_id}</TableCell>
         <TableCell>
-          <Box sx={{ display: "flex", gap: 1 }}>
+          <Box sx={{ display: "flex", gap: 1, justifyContent: "center" }}>
             <Button size="sm" variant="plain" color="neutral">
               View
             </Button>
@@ -59,7 +59,7 @@ function Row(props: { row: EmployeeHistoryProps; initialOpen?: boolean }) {
         </TableCell>
       </TableRow>
       <TableRow>
-        <TableCell style={{ height: 0, padding: 0 }} colSpan={10}>
+        <TableCell style={{ height: 0, padding: 0 }} colSpan={11}>
           <Collapse in={open} timeout="auto" unmountOnExit>
             <Box sx={{ margin: 1 }}>
               <Typography gutterBottom component="div">
@@ -77,7 +77,7 @@ function Row(props: { row: EmployeeHistoryProps; initialOpen?: boolean }) {
                 <TableBody>
                   {row.history.map((historyRow) => (
                     <TableRow key={historyRow.collection_id}>
-                      <TableCell component="th" scope="row">
+                      <TableCell component="td" scope="row">
                         {historyRow.collection_id}
                       </TableCell>
                       <TableCell>{historyRow.department_id}</TableCell>
@@ -101,7 +101,7 @@ const EmployeesCollapsibleRow = () => {
   let employeesRows: EmployeesHistoryWithDepartmentProps =
     employeesWithDepartmentHistory(empsData, deptsData);
   const [page, setPage] = React.useState(0);
-  const [rowsPerPage, setRowsPerPage] = React.useState(5);
+  const [rowsPerPage, setRowsPerPage] = React.useState(10);
   const currentRows = employeesRows.filter((r, ind) => {
     return ind >= rowsPerPage * page && ind < rowsPerPage * (page + 1);
   });

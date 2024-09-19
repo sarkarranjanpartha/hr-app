@@ -9,6 +9,7 @@ import departmentWithEmployeesHistory from "./utils/hrAppDeptEmpHistory";
 import { getDepartments, putDepartmentsById } from "./services/departmentsApi";
 import { getEmployees } from "./services/employeesApi";
 import { apiParamsProps } from "./types/servicesType";
+import "../src/index.css";
 
 const DepartmentCollapsibleTable = () => {
   const [empsData, setEmpsData] = useState<EmployeeProps[]>([]);
@@ -75,7 +76,9 @@ const DepartmentCollapsibleTable = () => {
 
   return (
     <>
-      <div>Department Collapsible Table</div>
+      <div className="CollapsibleTextAlignCss">
+        <h1>Department Details</h1>
+      </div>
       <DepartmentsCollapsibleRow
         departmentsRows={departmentsRows}
         updateDepartmentsByCollectionID={updateDepartmentsByCollectionID}
