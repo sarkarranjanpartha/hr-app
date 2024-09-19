@@ -1,13 +1,12 @@
-import EmployeesCollapsibleTable from "./EmployeeCollapsibleTable";
 import DepartmentCollapsibleTable from "./DepartmentCollapsibleTable";
+// import EmployeesCollapsibleTable from "./EmployeeCollapsibleTable";
+// import { Divider } from "@mui/material";
 
 function App() {
   return (
     <div className="App">
-      {/* <EmployeesCollapsibleTable /> */}
-      {/* <p>
-        ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-      </p> */}
+      {/* <EmployeesCollapsibleTable />
+      <Divider /> */}
       <DepartmentCollapsibleTable />
     </div>
   );

@@ -27,9 +27,6 @@ const DepartmentForm = (props: DepartmentFormProps) => {
     selectedRow,
   } = props;
 
-  const [collectionId, setCollectionId] = useState(
-    selectedRow?.collection_id ?? ""
-  );
   const [departmentId, setDepartmentId] = useState(
     selectedRow?.department_id ?? ""
   );
@@ -38,22 +35,24 @@ const DepartmentForm = (props: DepartmentFormProps) => {
   );
   const [location, setLocation] = useState(selectedRow?.location ?? "");
 
+  const collectionId = selectedRow?.collection_id ?? "";
+
   const departmentIdChangeHandler = (
     event: React.ChangeEvent<HTMLInputElement | any>
   ) => {
-    setDepartmentId(event.target.value);
+    setDepartmentId(() => event.target.value);
   };
 
   const departmentNameChangeHandler = (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
-    setDepartmentName(event.target.value);
+    setDepartmentName(() => event.target.value);
   };
 
   const locationChangeHandler = (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
-    setLocation(event.target.value);
+    setLocation(() => event.target.value);
   };
 
   const submitHandler = (event: any) => {
