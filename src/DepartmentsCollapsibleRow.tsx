@@ -28,8 +28,9 @@ function Row(props: {
     collectionID: number,
     bodyData: any
   ) => void;
+  callRefreshFunction: () => void;
 }) {
-  const { row, updateDepartmentsByCollectionID } = props;
+  const { row, updateDepartmentsByCollectionID, callRefreshFunction } = props;
   const [openExpandRow, setOpenExpandRow] = React.useState(false);
   const [openConfirmationDepartmentModal, setOpenConfirmationDepartmentModal] =
     React.useState<boolean>(false);
@@ -77,7 +78,6 @@ function Row(props: {
                 variant="plain"
                 color="neutral"
                 onClick={() => {
-                  // console.log("Clicked on View");
                   setOpenConfirmationDepartmentModal(true);
                   setIsReadOnlyDepartmentModal(true);
                   setIsNewDepartmentCreation(false);
@@ -92,7 +92,6 @@ function Row(props: {
                 variant="soft"
                 color="danger"
                 onClick={() => {
-                  // console.log("Clicked on Edit");
                   setOpenConfirmationDepartmentModal(true);
                   setIsReadOnlyDepartmentModal(false);
                   setIsNewDepartmentCreation(false);
@@ -161,6 +160,7 @@ function Row(props: {
         callType={callType}
         selectedRow={selectedRow}
         updateDepartmentsByCollectionID={updateDepartmentsByCollectionID}
+        callRefreshFunction={callRefreshFunction}
       />
     </>
   );
@@ -172,10 +172,14 @@ export interface DepartmentsCollapsibleRowProps {
     collectionID: number,
     bodyData: any
   ) => void;
+  callRefreshFunction: () => void;
 }
 const DepartmentsCollapsibleRow = (props: DepartmentsCollapsibleRowProps) => {
-  // console.log("DepartmentsCollapsibleRowProps", props);
-  const { departmentsRows, updateDepartmentsByCollectionID } = props;
+  const {
+    departmentsRows,
+    updateDepartmentsByCollectionID,
+    callRefreshFunction,
+  } = props;
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
 
@@ -226,7 +230,6 @@ const DepartmentsCollapsibleRow = (props: DepartmentsCollapsibleRowProps) => {
                   variant="soft"
                   color="success"
                   onClick={() => {
-                    // console.log("Clicked on Create New Department");
                     setOpenConfirmationDepartmentModal(true);
                     setIsReadOnlyDepartmentModal(false);
                     setIsNewDepartmentCreation(true);
@@ -247,6 +250,7 @@ const DepartmentsCollapsibleRow = (props: DepartmentsCollapsibleRowProps) => {
                     updateDepartmentsByCollectionID={
                       updateDepartmentsByCollectionID
                     }
+                    callRefreshFunction={callRefreshFunction}
                   />
                 ))
               : Array.from(Array(rowsPerPage).keys()).map((x) => (
@@ -278,6 +282,7 @@ const DepartmentsCollapsibleRow = (props: DepartmentsCollapsibleRowProps) => {
         callType={callType}
         // selectedRow={selectedRow}
         updateDepartmentsByCollectionID={updateDepartmentsByCollectionID}
+        callRefreshFunction={callRefreshFunction}
       />
     </>
   );

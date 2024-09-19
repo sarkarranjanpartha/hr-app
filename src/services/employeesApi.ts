@@ -18,14 +18,12 @@ export const getEmployees = async (
     url: `${getConfig.baseUrl}/${getEmployeeParams.url}`,
   })
     .then((response) => {
-      // console.log("getEmployees response", response);
       return {
         status: response.status,
         data: response.data,
       };
     })
     .catch((error) => {
-      // console.log("getEmployees error", error);
       return {
         status: error.status,
         data: error.response,
@@ -41,14 +39,12 @@ export const postEmployees = async (
     url: `${postConfig.baseUrl}/${postEmployeeParams.url}`,
   })
     .then((response) => {
-      // console.log("getEmployees response", response);
       return {
         status: response.status,
         data: response.data,
       };
     })
     .catch((error) => {
-      // console.log("getEmployees error", error);
       return {
         status: error.status,
         data: error.response,
@@ -64,14 +60,12 @@ export const getEmployeesById = async (
     url: `${getByIdConfig.baseUrl}/${getEmployeesByIdParams.url}`,
   })
     .then((response) => {
-      // console.log("getEmployees response", response);
       return {
         status: response.status,
         data: response.data,
       };
     })
     .catch((error) => {
-      // console.log("getEmployees error", error);
       return {
         status: error.status,
         data: error.response,
@@ -87,14 +81,12 @@ export const putEmployeesById = async (
     url: `${putByIdConfig.baseUrl}/${putEmployeesByIdParams.url}`,
   })
     .then((response) => {
-      // console.log("getEmployees response", response);
       return {
         status: response.status,
         data: response.data,
       };
     })
     .catch((error) => {
-      // console.log("getEmployees error", error);
       return {
         status: error.status,
         data: error.response,
@@ -110,14 +102,12 @@ export const deleteEmployeesById = async (
     url: `${deleteByIdConfig.baseUrl}/${deleteEmployeesByIdParams.url}`,
   })
     .then((response) => {
-      // console.log("getEmployees response", response);
       return {
         status: response.status,
         data: response.data,
       };
     })
     .catch((error) => {
-      // console.log("getEmployees error", error);
       return {
         status: error.status,
         data: error.response,

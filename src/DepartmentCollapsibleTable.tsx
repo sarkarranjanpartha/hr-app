@@ -27,11 +27,9 @@ const DepartmentCollapsibleTable = () => {
     };
     getDepartments(getAllDepartmentArgs)
       .then((deptsResponse) => {
-        if (deptsResponse.status === 200) {
+        if (deptsResponse.status === 200)
           setDeptsData(deptsResponse?.data?.items);
-        } else {
-          console.log("getDepartments !== 200", deptsResponse);
-        }
+        else console.log("getDepartments !== 200", deptsResponse);
       })
       .catch((deptsError) => console.log(deptsError));
   };
@@ -46,11 +44,8 @@ const DepartmentCollapsibleTable = () => {
     };
     getEmployees(getAllEmployeeArgs)
       .then((empsResponse) => {
-        if (empsResponse.status === 200) {
-          setEmpsData(empsResponse?.data?.items);
-        } else {
-          console.log("getEmployees !== 200", empsResponse);
-        }
+        if (empsResponse.status === 200) setEmpsData(empsResponse?.data?.items);
+        else console.log("getEmployees !== 200", empsResponse);
       })
       .catch((empsError) => console.log(empsError));
   };
@@ -67,9 +62,7 @@ const DepartmentCollapsibleTable = () => {
     putDepartmentsById(putDepartmentArgs)
       .then((updtDeptResponse) => {
         if (updtDeptResponse.status === 200) callRefreshFunction();
-        else {
-          console.log("putDepartmentsById !== 200", updtDeptResponse);
-        }
+        else console.log("putDepartmentsById !== 200", updtDeptResponse);
       })
       .catch((updtDeptError) => console.log(updtDeptError));
   };
@@ -84,13 +77,13 @@ const DepartmentCollapsibleTable = () => {
       empsData,
       deptsData.sort((a, b) => a.department_id - b.department_id)
     );
-  // console.log("dataChanged", dataChanged);
   return (
     <>
       <div>Department Collapsible Table</div>
       <DepartmentsCollapsibleRow
         departmentsRows={departmentsRows}
         updateDepartmentsByCollectionID={updateDepartmentsByCollectionID}
+        callRefreshFunction={callRefreshFunction}
       />
     </>
   );

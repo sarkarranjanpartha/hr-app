@@ -18,14 +18,12 @@ export const getDepartments = async (
     url: `${getConfig.baseUrl}/${getDepartmentParams.url}`,
   })
     .then((response) => {
-      // console.log("getDepartments response", response);
       return {
         status: response.status,
         data: response.data,
       };
     })
     .catch((error) => {
-      // console.log("getDepartments error", error);
       return {
         status: error.status,
         data: error.response,
@@ -42,14 +40,12 @@ export const postDepartmentApi = async (
     data: postDepartmentParams.data,
   })
     .then((response) => {
-      // console.log("postDepartmentApi response", response);
       return {
         status: response.status,
         data: response.data,
       };
     })
     .catch((error) => {
-      // console.log("postDepartmentApi error", error);
       return {
         status: error.status,
         data: error.response,
@@ -65,14 +61,12 @@ export const getDepartmentsById = async (
     url: `${getByIdConfig.baseUrl}/${getDepartmentsByIdParams.url}`,
   })
     .then((response) => {
-      // console.log("getDepartments response", response);
       return {
         status: response.status,
         data: response.data,
       };
     })
     .catch((error) => {
-      // console.log("getDepartments error", error);
       return {
         status: error.status,
         data: error.response,
@@ -83,21 +77,18 @@ export const getDepartmentsById = async (
 export const putDepartmentsById = async (
   putDepartmentsByIdParams: apiParamsProps
 ): Promise<any> => {
-  // console.log("putDepartmentsByIdParams", putDepartmentsByIdParams);
   return await axios({
     ...putByIdConfig,
     url: `${putByIdConfig.baseUrl}/${putDepartmentsByIdParams.url}`,
     data: putDepartmentsByIdParams.data,
   })
     .then((response) => {
-      // console.log("putDepartmentsById response", response);
       return {
         status: response.status,
         data: response.data,
       };
     })
     .catch((error) => {
-      // console.log("putDepartmentsById error", error);
       return {
         status: error.status,
         data: error.response,
@@ -113,14 +104,12 @@ export const deleteDepartmentsById = async (
     url: `${deleteByIdConfig.baseUrl}/${deleteDepartmentsByIdParams.url}`,
   })
     .then((response) => {
-      // console.log("getDepartments response", response);
       return {
         status: response.status,
         data: response.data,
       };
     })
     .catch((error) => {
-      // console.log("getDepartments error", error);
       return {
         status: error.status,
         data: error.response,
