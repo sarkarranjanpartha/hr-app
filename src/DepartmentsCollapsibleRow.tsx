@@ -48,7 +48,7 @@ function Row(props: {
   return (
     <>
       <React.Fragment>
-        <TableRow sx={{ "& > *": { borderBottom: "unset" } }}>
+        <TableRow>
           <TableCell align="center">
             <IconButton
               aria-label="expand row"
@@ -65,13 +65,13 @@ function Row(props: {
               )}
             </IconButton>
           </TableCell>
-          <TableCell component="td" scope="row" align="center">
+          <TableCell component="td" scope="row" align="right">
             {row.collection_id}
           </TableCell>
-          <TableCell align="center">{row.department_id}</TableCell>
+          <TableCell align="right">{row.department_id}</TableCell>
           <TableCell>{row.department_name}</TableCell>
           <TableCell>{row.location}</TableCell>
-          <TableCell sx={{ display: "flex", justifyContent: "space-around" }}>
+          <TableCell>
             <Box sx={{ display: "flex", gap: 1 }}>
               <Button
                 size="sm"
@@ -105,7 +105,7 @@ function Row(props: {
           </TableCell>
         </TableRow>
         <TableRow>
-          <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={5}>
+          <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
             <Collapse in={openExpandRow} timeout="auto" unmountOnExit>
               <Box sx={{ margin: 1 }}>
                 <Typography variant="h6" gutterBottom component="div">
@@ -120,18 +120,20 @@ function Row(props: {
                       <TableCell>Job</TableCell>
                       <TableCell>Manager ID#</TableCell>
                       <TableCell>Hire Date</TableCell>
-                      <TableCell align="right">Salary</TableCell>
-                      <TableCell align="right">Commision</TableCell>
+                      <TableCell>Salary</TableCell>
+                      <TableCell>Commision</TableCell>
                       <TableCell>Department ID#</TableCell>
                     </TableRow>
                   </TableHead>
                   <TableBody>
                     {row.history.map((historyRow) => (
                       <TableRow key={historyRow.collection_id}>
-                        <TableCell component="th" scope="row">
+                        <TableCell component="th" scope="row" align="right">
                           {historyRow.collection_id}
                         </TableCell>
-                        <TableCell>{historyRow.employee_id}</TableCell>
+                        <TableCell align="right">
+                          {historyRow.employee_id}
+                        </TableCell>
                         <TableCell>{historyRow.employee_name}</TableCell>
                         <TableCell>{historyRow.job}</TableCell>
                         <TableCell>{historyRow.manager_id ?? "-"}</TableCell>
@@ -140,7 +142,9 @@ function Row(props: {
                         <TableCell align="right">
                           {historyRow.commision ?? "-"}
                         </TableCell>
-                        <TableCell>{historyRow.department_id}</TableCell>
+                        <TableCell align="right">
+                          {historyRow.department_id}
+                        </TableCell>
                       </TableRow>
                     ))}
                   </TableBody>
@@ -222,9 +226,7 @@ const DepartmentsCollapsibleRow = (props: DepartmentsCollapsibleRowProps) => {
               <TableCell>Department ID#</TableCell>
               <TableCell>Department Name</TableCell>
               <TableCell>Location</TableCell>
-              <TableCell
-                sx={{ display: "flex", justifyContent: "space-around" }}
-              >
+              <TableCell>
                 <Button
                   size="sm"
                   variant="soft"
@@ -280,7 +282,6 @@ const DepartmentsCollapsibleRow = (props: DepartmentsCollapsibleRowProps) => {
         isReadOnlyDepartmentModal={isReadOnlyDepartmentModal}
         isNewDepartmentCreation={isNewDepartmentCreation}
         callType={callType}
-        // selectedRow={selectedRow}
         updateDepartmentsByCollectionID={updateDepartmentsByCollectionID}
         callRefreshFunction={callRefreshFunction}
       />
