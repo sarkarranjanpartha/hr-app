@@ -14,12 +14,6 @@ const DepartmentCollapsibleTable = () => {
   const [empsData, setEmpsData] = useState<EmployeeProps[]>([]);
   const [deptsData, setDeptsData] = useState<DepartmentProps[]>([]);
   const [dataChanged, setDataChanged] = useState(false);
-  const [openConfirmationDepartmentModal, setOpenConfirmationDepartmentModal] =
-    React.useState<boolean>(false);
-  const handleCloseConfirmationDepartmentModal = () => {
-    setOpenConfirmationDepartmentModal(false);
-    callRefreshFunction();
-  };
 
   const departmentsData = () => {
     const getAllDepartmentArgs: apiParamsProps = {
@@ -77,6 +71,7 @@ const DepartmentCollapsibleTable = () => {
       empsData,
       deptsData.sort((a, b) => a.department_id - b.department_id)
     );
+
   return (
     <>
       <div>Department Collapsible Table</div>
