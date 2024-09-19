@@ -15,6 +15,9 @@ export interface EmployeeProps {
   salary: number;
   commision: number | null;
   department_id: number;
+  media_type: string | null;
+  media_title: string | null;
+  media_url: Uri;
 }
 
 // export interface DepartmentsHistoryProps {

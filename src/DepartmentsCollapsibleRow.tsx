@@ -143,6 +143,7 @@ function Row(props: {
                       <TableCell>Salary</TableCell>
                       <TableCell>Commision</TableCell>
                       <TableCell>Department ID#</TableCell>
+                      <TableCell>Image</TableCell>
                     </TableRow>
                   </TableHead>
                   <TableBody>
@@ -161,6 +162,9 @@ function Row(props: {
                         <TableCell align="right">{historyRow.salary}</TableCell>
                         <TableCell align="right">
                           {historyRow.commision ?? "-"}
+                        </TableCell>
+                        <TableCell align="right">
+                          {historyRow.department_id}
                         </TableCell>
                         <TableCell align="right">
                           {historyRow.department_id}
