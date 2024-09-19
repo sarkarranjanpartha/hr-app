@@ -14,7 +14,6 @@ import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import TablePagination from "@mui/material/TablePagination";
 import { Button } from "@mui/joy";
-import VisibilityIcon from "@mui/icons-material/Visibility";
 import {
   DepartmentHistoryProps,
   DepartmentProps,
@@ -33,6 +32,7 @@ function Row(props: {
   callRefreshFunction: () => void;
 }) {
   const { row, updateDepartmentsByCollectionID, callRefreshFunction } = props;
+
   const [openExpandRow, setOpenExpandRow] = React.useState(false);
   const [openConfirmationDepartmentModal, setOpenConfirmationDepartmentModal] =
     React.useState<boolean>(false);
@@ -42,17 +42,18 @@ function Row(props: {
     React.useState(false);
   const [callType, setCallType] = React.useState("");
   const [selectedRow, setSelectedRow] = React.useState<DepartmentProps>();
+  const [openImageModal, setOpenImageModal] = React.useState(false);
+  const [selectedMediaUrl, setSelectedMediaUrl] = React.useState("");
+  const [selectedMediaTitle, setSelectedMediaTitle] = React.useState("");
 
   const handleCloseConfirmationDepartmentModal = () =>
     setOpenConfirmationDepartmentModal(() => false);
-  const [openImageModal, setOpenImageModal] = React.useState(false);
-  const [mediaUrl, setMediaUrl] = React.useState("");
-  const [mediaTitle, setMediaTitle] = React.useState("");
-  const openImageModalHandler = (imageUrl: string, mediaTitle: string) => {
-    setMediaUrl(() => imageUrl);
-    setMediaTitle(() => mediaTitle);
+  const handleOpenImageModal = (mediaUrl: string, mediaTitle: string) => {
+    setSelectedMediaUrl(mediaUrl);
+    setSelectedMediaTitle(mediaTitle);
     setOpenImageModal(true);
   };
+  const handleCloseImageModal = () => setOpenImageModal(false);
 
   return (
     <>
@@ -177,17 +178,19 @@ function Row(props: {
                         </TableCell>
                         <TableCell>
                           {historyRow.media_url ? (
-                            <IconButton
-                              color="default"
+                            <Button
+                              size="sm"
+                              variant="outlined"
+                              color="primary"
                               onClick={() =>
-                                openImageModalHandler(
+                                handleOpenImageModal(
                                   historyRow.media_url as string,
                                   historyRow.media_title as string
                                 )
                               }
                             >
-                              <VisibilityIcon />
-                            </IconButton>
+                              Open Modal
+                            </Button>
                           ) : (
                             "-"
                           )}
@@ -213,14 +216,12 @@ function Row(props: {
         updateDepartmentsByCollectionID={updateDepartmentsByCollectionID}
         callRefreshFunction={callRefreshFunction}
       />
-      {openImageModal && (
-        <ImageModal
-          openImageModal={openImageModal}
-          mediaTitle={mediaTitle}
-          mediaUrl={mediaUrl}
-          setOpenImageModal={setOpenImageModal}
-        />
-      )}
+      <ImageModal
+        open={openImageModal}
+        onClose={handleCloseImageModal}
+        mediaUrl={selectedMediaUrl}
+        mediaTitle={selectedMediaTitle}
+      />
     </>
   );
 }
@@ -239,6 +240,7 @@ const DepartmentsCollapsibleRow = (props: DepartmentsCollapsibleRowProps) => {
     updateDepartmentsByCollectionID,
     callRefreshFunction,
   } = props;
+
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
 
